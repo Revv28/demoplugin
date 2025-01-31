@@ -27,10 +27,6 @@ sap.ui.define([
                 duration : 100000
             });
 
-            // new sap.m.Button("button1",{
-            //     text : "hello from plugin"
-            // }).placeAt('content');
-
             var bar = new sap.m.Bar({
                 contentLeft: [
                     // Dummy button
@@ -49,12 +45,10 @@ sap.ui.define([
             });
 
             // Retrieve Fiori2 renderer
-            var oRenderer = sap.ushell.container.getRenderer("fiori2");
-
+            var oRenderer = Container.getRenderer("fiori2");
+            
             // Ask renderer to set the custom bar as new footer
             oRenderer.setFooter(bar);
-
-
         }
     });
 });
