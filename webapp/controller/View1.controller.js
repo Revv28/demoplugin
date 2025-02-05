@@ -5,6 +5,9 @@ sap.ui.define([
 
     return Controller.extend("app.demoplugin.controller.View1", {
         onInit() {
-        }
+        },
+        // onFloatingButtonPress: function () {
+        //     sap.m.MessageToast.show("Floating button pressed!");
+        // }
     });
 });
