@@ -14,9 +14,12 @@ sap.ui.define([
         },
 
         init: function () {
+            jQuery.sap.registerModulePath("my.component", "https://93ba30e2trial.launchpad.cfapps.us10.hana.ondemand.com/218d5e29-caf1-49e9-8b53-a5db19e7d577.appmainapp.appmainapp");
             
             UIComponent.prototype.init.apply(this, arguments);
+
             this.setModel(models.createDeviceModel(), "device");
+            
             this.getRouter().initialize();
 
             sap.m.MessageToast.show("Hello from plugin. updated", { duration: 5000 });
@@ -45,11 +48,22 @@ sap.ui.define([
 
             if (!this._oDialog) {
                 Fragment.load({
-                    name: "app.demoplugin.view.fragments.componentContainer", // Adjust the path
-                    controller: this
+                    name: "app.demoplugin.view.fragments.componentContainer", // Path to the fragment
+                    controller: this,
+                    ownerComponent: that
+
                 }).then(function (oDialog) {
                     that._oDialog = oDialog;
-                    that._oDialog.open();
+                    sap.ui.core.Component.create({
+                        name: "my.component",
+                        url: "https://93ba30e2trial.launchpad.cfapps.us10.hana.ondemand.com/218d5e29-caf1-49e9-8b53-a5db19e7d577.appmainapp.appmainapp",
+                        manifestFirst: true
+                    }).then(function (oComponent) {
+                        that._oDialog.getContent()[0].setComponent(oComponent);
+                        that._oDialog.open();
+                    }).catch(function (oError) {
+                        console.error("Failed to load component:", oError);
+                    });
                 });
             } else {
                 this._oDialog.open();

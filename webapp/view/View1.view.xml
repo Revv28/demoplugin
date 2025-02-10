@@ -3,13 +3,9 @@
     xmlns:core="sap.ui.core"
 
     xmlns="sap.m">
-    <Page id="page" title="{i18n>title}">
+    <!-- <Page id="page" title="{i18n>title}">
         <content>
-            <!-- <Button
-                id="floatingButton"
-                icon="sap-icon://add"
-                press="onFloatingButtonPress"
-                class="floatingButton"/> -->
+            
         </content>
-    </Page>
+    </Page> -->
 </mvc:View>

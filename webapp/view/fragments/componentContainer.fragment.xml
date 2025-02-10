@@ -1,7 +1,8 @@
 <core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
     <Dialog id="draggableDialog" title="Draggable Dialog" draggable="true">
         <content>
-            <Text id="text1" text="You can drag this dialog from anywhere!" />
+            <core:ComponentContainer width="100%" id="myComponentContainer"  height="100%"  manifest="true"/>
+            <!-- <Text text="Hello from plugin"></Text> -->
         </content>
         <buttons>
             <Button id="button1" text="Close" press="onCloseDialog" />
